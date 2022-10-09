@@ -1,0 +1,29 @@
+; Tokenomics ;
+ - A crypt is a 1 to 12 character string
+ - Initial pool of 100 crypts, each valued at 1 coindle
+ - Every day at 9am EST a new a crypt is chosen at weighted random (according to value) from the pool
+ - Every 10 minutes a hint is made public
+ - First to solve the crypt has the ability to mint and transact a NFTdle
+   - If the solver declines, the NFTdle is minted and gifted to the developer
+   - The crypt is archived
+ - Any who solve the crypt has the ability to transact 1/2 of its current coindle value
+ - Solvers may spend coindles to publish crypts to the pool
+   - A crypt's value is the amount of coindles spent on it
+   - Explicit words are outlawed
+ - An additional 0.2% of all coindles is minted everyday and given to the publishers of the day's crypt
+   - Publishers are awarded reduced amounts if their crypt is guessed very early or late
+
+
+; Smart Contract ;
+Implements ERC-165, ERC-1155
+
+    uint256 public constant _COINDLE_ID = 0;
+    uint256 public _current_NFTdle_id = 1;
+      // map token ID to owner’s address
+    mapping(uint256 => address) private _owners;
+
+
+    constructor(string uri) {
+        
+    }
+
